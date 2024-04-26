@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const DetailView = ({ data }) => {
     const { id } = useParams();
     const [post, setPost] = useState([]);
+    const [vote, setVote] = useState(post.vote);
     
     useEffect (() => {
         const fetchPosts = async () => {
@@ -19,7 +20,15 @@ const DetailView = ({ data }) => {
         setPost(data.data[0])
         }
         fetchPosts();
-    }, [id]);
+    }, [id, vote]);
+
+    const updateVote = async () => {
+        await supabase
+            .from('Reddit')
+            .update({vote: post.vote + 1})
+            .eq('id', post.id)
+        setVote(post.vote + 1)
+    }
 
     return (
         <div className="DetailView">
@@ -29,7 +38,7 @@ const DetailView = ({ data }) => {
             <p>Vote: {post.vote}</p>
             {post.img && <img src={post.img} alt="Banner"/> }
             <Link to={`/edit/${post.id}`}>Edit this card</Link>         */}
-            <Card image={post.image} id={post.id} title={post.title} created_at={post.created_at} vote={post.vote} content={post.content} />
+            <Card handleVote={updateVote} image={post.image} id={post.id} title={post.title} created_at={post.created_at} vote={post.vote} content={post.content} />
         </div>
     )
 }
