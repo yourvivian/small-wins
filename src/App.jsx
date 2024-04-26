@@ -8,10 +8,14 @@ import ViewPosts from './pages/ViewPosts'
 import DetailView from './pages/DetailView'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
+import SearchBar from './components/SearchBar'
 
 function App() {
   const [count, setCount] = useState(0)
   const [posts, setPosts] = useState([])
+  const [inputs, setInputs] = useState([])
+  const [searchInput, setSearchInput] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   // useEffect(() => {
   //   async function getTodos() {
@@ -29,7 +33,12 @@ function App() {
   let element = useRoutes([
     {
       path: '/',
-      element: <ViewPosts data={posts} />
+      element: 
+      <>
+        <SearchBar setSearchInput={setSearchInput} setSearchResults={setSearchResults}/>
+        <ViewPosts searchInput={searchInput} searchResults={searchResults} data={posts} />
+      </>
+
     },
     {
       path: '/edit/:id',
