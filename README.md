@@ -41,7 +41,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='[http://i.imgur.com/link/to/your/gif/file.gif](https://imgur.com/a/1w5DhGu)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+https://github.com/yourvivian/final-codepath102/assets/87792873/bb87ff44-0078-4754-9552-ed9afb4c2ac4
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
