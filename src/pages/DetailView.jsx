@@ -9,7 +9,25 @@ const DetailView = ({ data }) => {
     const { id } = useParams();
     const [post, setPost] = useState([]);
     const [vote, setVote] = useState(post.vote);
+    // const [comments, setComments] = useState([]);
     
+    // useEffect(() => {
+    //     const fetchComments = async () => {
+    //         const { data } = await supabase
+    //             .from('RedditComment')
+    //             .select()
+    //             .eq('post', id)
+    //             .order('created_at', {ascending: false});
+    
+    //         setComments(data);
+    //     }
+    //     fetchComments();
+    // }, []);
+
+    // const handleNewComment = (newComment) => {
+    //     setComments(prevComments => [newComment, ...prevComments]);
+    // }
+
     useEffect (() => {
         const fetchPosts = async () => {
             const data = await supabase
